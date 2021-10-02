@@ -1,2 +1,2 @@
-# gymlibrary-frontend
+# GymLib-Frontend
 Created with CodeSandbox
