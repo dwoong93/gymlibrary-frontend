@@ -2,23 +2,9 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div class="container-fluid">
-        <div class="alert alert-success my-5" v-if="status">{{ status }}</div>
-        <a
-          class="navbar-brand font-weight-bold text-warning"
-          v-on:click="goExercise"
-          >GYM LIBRARY</a
-        >
-        <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          v-on:click="dropDownMenuShow"
-        > -->
-          <!-- <span class="navbar-toggler-icon"></span> -->
+        <div id="statusBox" class="alert alert-success my-5" v-if="status">{{ status }}</div>
+        <a href="/"><img class="navbar-brand" id="logo" src="https://i.imgur.com/a9mMFf2.png" alt="HomePage"></a>
+
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,18 +21,6 @@
               <a class="nav-link" v-on:click="goWorkout">Workout Library</a>
             </li>
           </ul>
-          
-          <!-- <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-warning" type="submit">
-              Search
-            </button>
-          </form> -->
         </div>
         <ul class="navbar-nav d-lg-none">
             <li class="nav-item">
@@ -80,7 +54,6 @@
         v-on:updateWod="onUpdateWod"
         v-on:delete-wod="delWod"
       />
-      <collapsedMenu v-if="page == 'collapsedMenu'" />
       <exerciseAdd
         v-if="page == 'exerciseAdd'"
         v-on:new-exercise-added="onExerciseAdded"
@@ -146,7 +119,6 @@ import updateExercise from "./components/updateExercise";
 import addWorkoutExercise from "./components/addWorkoutExercise";
 import exerciseDelete from "./components/exerciseDelete";
 import addWorkoutPage from "./components/addWorkoutPage";
-import collapsedMenu from "./components/collapsedMenu";
 import deleteWorkoutExercise from "./components/deleteWorkoutExercise";
 import updateWorkout from "./components/updateWorkout";
 import deleteWorkout from "./components/deleteWorkout";
@@ -161,7 +133,6 @@ export default {
     addWorkoutExercise,
     exerciseDelete,
     addWorkoutPage,
-    collapsedMenu,
     updateWodExercise,
     deleteWorkoutExercise,
     updateWorkout,
@@ -178,6 +149,9 @@ export default {
       updateWodEx: 0,
       wodBeingUpdated: 0,
       wodBeingDel: 0,
+      backgroundImg: {
+        backgroundImage: "url(https://vuejs.org/images/logo.png)",
+      },
     };
   },
   methods: {
@@ -202,7 +176,6 @@ export default {
       this.status = "";
     },
     onEditExercise: function (exerciseId) {
-      alert(exerciseId);
       this.page = "updateExercise";
       this.status = "";
       this.exerciseBeingEdited = exerciseId;
@@ -215,7 +188,6 @@ export default {
       this.page = "exerciseLibrary";
     },
     onDelExercise: function (exerciseId) {
-      alert(exerciseId);
       this.page = "exerciseDelete";
       this.status = "";
       this.exBeingDel = exerciseId;
@@ -229,7 +201,6 @@ export default {
       this.status = "";
     },
     onUpdateWod: function (workoutId) {
-      alert(workoutId);
       this.page = "updateWorkout";
       this.status = "";
       this.wodBeingUpdated = workoutId;
@@ -251,7 +222,6 @@ export default {
       this.status = "";
     },
     delWod: function (workoutId) {
-      alert(workoutId);
       this.page = "deleteWorkout";
       this.status = "";
       this.wodBeingDel = workoutId;
@@ -266,7 +236,6 @@ export default {
       this.status = "";
     },
     onEditWodExercise: function (wodexId) {
-      alert(wodexId);
       this.page = "updateWodExercise";
       this.status = "";
       this.updateWodEx = wodexId;
@@ -280,7 +249,6 @@ export default {
       this.status = "";
     },
     onDelWodExercise: function (wodexId) {
-      alert(wodexId);
       this.page = "deleteWorkoutExercise";
       this.status = "";
       this.delExfrWod = wodexId;
@@ -308,14 +276,28 @@ export default {
       this.status = "";
       this.page = "exerciseLibrary";
     },
-    dropDownMenuShow: function () {
-      this.page = "collapsedMenu";
-      this.status = "";
-    },
   },
 };
 </script>
 
 <style>
+#statusBox {
+  position: absolute;
+  top: 1.5em;
+  left: 1em;
+  border: none;
+  background: rgba(241, 185, 0.4, 0.5);
+  color: black;
+}
+#app {
+  background-image: linear-gradient(
+    0deg,
+    rgb(223, 222, 217),
+    rgb(255, 255, 255)
+  );
+}
+#logo {
+  width: 200px;
+}
 </style>
 

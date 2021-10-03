@@ -12,7 +12,7 @@
       <input type="text" class="form-control" v-model="Intensity" />
     </div>
     <button class="btn btn-dark my-3" v-on:click="goWorkout">Cancel</button>
-    <button class="btn btn-warning my-3" v-on:click="processUpdate">
+    <button class="btn btn-warning mx-2 my-3" v-on:click="processUpdate">
       Update Exercise
     </button>
   </div>

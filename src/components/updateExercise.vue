@@ -20,7 +20,7 @@
         ></textarea>
       </div>
 
-      <label class="form-label">Media Link</label>
+      <label class="form-label">Image</label>
       <input type="text" class="form-control" v-model="media" />
     </div>
     <button class="mt-3 btn btn-dark" v-on:click="goExercise">Cancel</button>

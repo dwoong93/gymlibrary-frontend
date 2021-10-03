@@ -4,12 +4,7 @@
       <div>
         <h3>Confirm Delete Exercise from Workout?</h3>
       </div>
-      <input
-        type="text"
-        class="form-control"
-        name="deleteAuthKey"
-        placeholder="Enter Authentication Key"
-      />
+
       <button class="btn btn-dark my-3" v-on:click="goExercise">Cancel</button>
       <button class="btn btn-warning mx-3" v-on:click="processWodExDel">
         Delete

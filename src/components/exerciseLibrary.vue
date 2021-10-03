@@ -18,7 +18,8 @@
           v-for="e in filteredExercises"
           v-bind:key="e._id"
         >
-          <div class="card bg-light border-dark">
+          <div class="card bg-light border-light shadow-lg">
+            <img :src="e.media" class="card-img-top" alt="media image" />
             <div class="card-header text-white bg-dark">
               <h3>{{ e.exerciseName }}</h3>
             </div>
@@ -109,6 +110,7 @@ export default {
 #searchbar {
   width: 300px;
   border-radius: 5px;
+  border-width: 1px;
 }
 .btn {
   margin: 1px;

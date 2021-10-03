@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="container-fluid justify-content-start">
-      <h1 class="mx-1">Workouts Library</h1>
+      <h1 class="mx-1">Workout Library</h1>
       <input
         class="my-1"
         id="searchbar"
         type="text"
         placeholder="Search for a programme (e.g leg day, strength, flexibility)"
         v-model="searchResult"/><br />
-      <button class="btn btn-warning mb-4 btn-sm my-2" @click="addWorkout">
+      <button id="addBtn" class="btn btn-warning mb-4 btn-sm my-2" @click="addWorkout">
         Add New Workout
       </button>
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-12 col-12" v-for="w in filteredResult" v-bind:key="w._id">
-          <div class="card bg-light border-secondary" >
+          <div class="card bg-light border-secondary border-light shadow-lg" >
             <div class="card-header text-white bg-dark">
               <h3>{{w.workoutName}}</h3>
             </div>
@@ -24,8 +24,8 @@
               <p class="card-text">{{w.equipment}}</p>
 
               <h6 class="card-text my-0">Notes</h6>
-              <p class="card-text">additionalNote</p>
-                <table class="table ">
+              <p class="card-text">{{w.additionalNote}}</p>
+                <table class="table">
                   <thead class="table table-dark mx-0">
                     <tr>
                       <th class="text-left align-middle">Exercise</th>
@@ -49,9 +49,9 @@
                 <button class="btn btn-warning btn-sm" v-on:click="addExWod(w._id)" >Add Exercise</button>
               <div class="my-3">
                 <button class="btn btn-dark btn-sm" @click="updateWOD(w._id)">
-                  Update
+                  Update Workout
                 </button>
-                <button class="btn border-dark btn-sm mx-1" @click="deleteWOD(w._id)">Delete</button>
+                <button class="btn border-dark btn-sm mx-1" @click="deleteWOD(w._id)">Delete Workout</button>
                 <h6 class="card-text my-0">Uploaded By: {{w.author}}</h6>
               </div>
             </div>
@@ -95,7 +95,6 @@ export default {
       this.$emit("updateWod", workoutId);
     },
     deleteWOD: function (workoutId) {
-      alert("emitting", workoutId);
       this.$emit("delete-wod", workoutId);
     },
   },
@@ -125,6 +124,7 @@ export default {
 #searchbar {
   width: 450px;
   border-radius: 5px;
+  border-width: 1px;
 }
 .btn {
   margin: 1px;
@@ -138,6 +138,7 @@ export default {
   overflow-y: scroll;
   border-radius: 10px;
   margin-bottom: 50px;
+  background-color: seashell;
 }
 ::-webkit-scrollbar {
   width: 20px;

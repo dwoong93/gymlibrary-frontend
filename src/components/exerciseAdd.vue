@@ -10,7 +10,6 @@
         v-model="exerciseName"
         required
       />
-      <p class="warningText">Ex Name:{{ exerciseName }}</p>
       <label class="form-label">Muscle Worked</label>
       <input
         type="text"
@@ -38,10 +37,10 @@
           required
         ></textarea>
       </div>
-      <label class="form-label">Media Link</label>
+      <label class="form-label">Image</label>
       <input
         type="text"
-        placeholder="Paste video or image URL here"
+        placeholder="Paste instructional image or gif URL here"
         class="form-control"
         v-model="media"
       />
